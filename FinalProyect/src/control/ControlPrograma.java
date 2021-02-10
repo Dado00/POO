@@ -6,6 +6,8 @@
 package control;
 
 import DAO.DAOCliente;
+import finalproyect.Menu;
+import finalproyect.NewJFrame;
 import finalproyect.VistaHuesped;
 import finalproyect.Principal;
 import java.awt.event.ActionEvent;
@@ -25,12 +27,17 @@ public class ControlPrograma implements ActionListener {
     private Principal vistaPrincipal;
     private VistaHuesped vistaHuesped;
     private Huesped modeloHuesped;
+    private Menu vistaMenu;
+    private NewJFrame vistaFormulario;
   
-    public ControlPrograma(Registro modeloPrograma, Principal vistaPrincipal, VistaHuesped vistaHuesped, Huesped modeloHuesped) {
+    public ControlPrograma(Huesped modeloHuesped, Menu vistaMenu, Registro modeloPrograma, Principal vistaPrincipal, VistaHuesped vistaHuesped, NewJFrame vistaFormulario) {
+    this.modeloHuesped = modeloHuesped;
+    this.vistaMenu = vistaMenu;
     this.modeloPrograma = modeloPrograma;
     this.vistaPrincipal = vistaPrincipal;
     this.vistaHuesped= vistaHuesped;
-    this.modeloHuesped=modeloHuesped;
+    this.vistaFormulario = vistaFormulario;
+    
     
 
     this.vistaPrincipal.getjButton1().addActionListener(this);
