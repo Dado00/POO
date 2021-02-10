@@ -54,8 +54,8 @@ public class Huesped {
         return clave;
     }
 
-    public void setClaveCliente(int id_clientes) {
-        this.clave = id_clientes;
+    public void setClaveCliente(int clave) {
+        this.clave = clave;
     }
 
     public String getNombre() {
@@ -78,16 +78,16 @@ public class Huesped {
         return TipoHabitacion;
     }
 
-    public void setHabitacion(String tipohabitacion) {
-        this.TipoHabitacion = tipohabitacion;
+    public void setHabitacion(String TipoHabitacion) {
+        this.TipoHabitacion = TipoHabitacion;
     }
     
     public int getNumHabitacion() {
         return  numHabitacion;
     }
 
-    public void setNumHabitacion(int numhabitacion) {
-        this.numHabitacion = numhabitacion;
+    public void setNumHabitacion(int numHabitacion) {
+        this.numHabitacion = numHabitacion;
     }
     
     public int getComida() {
