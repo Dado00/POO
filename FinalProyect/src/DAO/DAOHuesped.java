@@ -9,21 +9,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import modelo.Huesped;
+
 /**
  *
  * @author Irving Poot
  */
-public class DAOCliente extends DAOGeneral<Cliente>{
-    public DAOCliente() {
+public class DAOHuesped extends DAOGeneral<Huesped>{
+    public DAOHuesped() {
     }
 
-    public int agregar(Cliente e) throws SQLException {
+    public int agregar(Huesped e) throws SQLException {
         int numFilas = 0;
         Connection con = getConeccion();
 
         String orden = "INSERT INTO cliente (clave, nombre, fechaIngreso, fechaSalida, numhab, comida, correo, tipoHab)"+
                 "VALUES ("+ e.getClaveCliente()+ ",'" + e.getNombre()+ "','" + 
-                e.getFechaIngreso().toString() + "',"+e.getFechaSalida().toString()+e.getNumHab()+e.getComidas()+e.getTipoHab()+")";
+                e.getFechaIngreso().toString() + "',"+e.getFechaSalida().toString()+"',"+e.getNumHabitacion()+"',"+e.getComida()+"',"+e.getEmail()+"',"+e.getHabitacion()+")";
 
         Statement sentencia = con.createStatement();
         numFilas = sentencia.executeUpdate(orden);
@@ -45,18 +47,18 @@ public class DAOCliente extends DAOGeneral<Cliente>{
         return numFilas;
     }
 
-    public int modificar(Cliente e, String condicion)throws SQLException {
+    public int modificar(Huesped e, String condicion)throws SQLException {
         int numFilas = 0;
         Connection con = getConeccion();
 
         String orden = "UPDATE cliente SET " +
                 "nombre='"+e.getNombre()+"',"+
                 "fechaIngreso = " + e.getFechaIngreso().toString() + "',"+
-                "fechaSslida = "+ e.isActivo()+ "',"+
-                "numhab = "+ e.getNumHab()+ "',"+ 
+                "fechaSslida = "+ e.getFechaSalida()+ "',"+
+                "numhab = "+ e.getNumHabitacion()+ "',"+ 
                 "comida = "+e.getComida()+"',"+
-                "correo = "+e.getCorreo()+"',"+
-                "tipoHab = "+e.getHab()+
+                "correo = "+e.getEmail()+"',"+
+                "tipoHab = "+e.getHabitacion()+
                 " WHERE "+condicion;
 
         Statement sentencia = con.createStatement();
@@ -66,16 +68,16 @@ public class DAOCliente extends DAOGeneral<Cliente>{
         return numFilas;
     }
 
-    public ArrayList<Cliente> consultar(String condicion) throws SQLException{
-        ArrayList<Cliente> lista = new ArrayList<Cliente>();
-        Cliente e;
+    public ArrayList<Huesped> consultar(String condicion) throws SQLException{
+        ArrayList<Huesped> lista = new ArrayList<Huesped>();
+        Huesped e;
         Connection con = getConeccion();
         String orden = "SELECT * FROM hotel.cliente " +
                 (condicion==null || condicion.length()==0 ? "":"WHERE " + condicion);
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Cliente(rs.getInt("clave"), rs.getString("nombre"),rs.getDate("fechaIngreso"),rs.getDate("fechaSalida"),rs.getInt("numhab"),rs.getInt("comida"),rs.getString("correo"),rs.getInt("tipoHab"));
+            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getDate("FechaIn"),rs.getDate("FechaOut"),rs.getInt("numHabitacion"),rs.getInt("comida"),rs.getString("email"),rs.getString("TipoHabitacion"));
             lista.add( e );
         }
         sentencia.close();

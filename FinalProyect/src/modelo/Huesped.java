@@ -16,17 +16,15 @@ public class Huesped {
     private Date FechaOut;
     private String nombre;
     private String apellido;
-    private int Clave;
+    private int clave;
     private String email;
     private int comida;
     private int numHabitacion;
     private String TipoHabitacion;
     
-    public Huesped(int Clave, String nombre, String apellido,String email,Date FechaIn,
-            Date FechaOut,String TipoHabitacion,int numHabitacion,int comida ){
-        this.Clave=Clave;
+    public Huesped(int clave, String nombre, Date FechaIn, Date FechaOut,int numHabitacion,int comida, String email,String TipoHabitacion){
+        this.clave=clave;
         this.nombre=nombre;
-        this.apellido=apellido;
         this.email=email;
         this.FechaIn=FechaIn;
         this.FechaOut=FechaOut;
@@ -53,11 +51,11 @@ public class Huesped {
     }
 
     public int getClaveCliente() {
-        return Clave;
+        return clave;
     }
 
     public void setClaveCliente(int id_clientes) {
-        this.Clave = id_clientes;
+        this.clave = id_clientes;
     }
 
     public String getNombre() {
