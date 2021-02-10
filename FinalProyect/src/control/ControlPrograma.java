@@ -6,6 +6,7 @@
 package control;
 
 import finalproyect.Huesped;
+import finalproyect.Menu;
 import finalproyect.Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,14 +19,12 @@ import modelo.Registro;
  */
 public class ControlPrograma implements ActionListener {
     
-    private Registro modeloPrograma;
-    private Principal vistaPrincipal;
-    private Huesped vistaHuesped;
+    private Huesped modeloHuesped;
+    private Menu vistaMenu;
   
-    public ControlPrograma(Registro modeloPrograma, Principal vistaPrincipal, Huesped vistaHuesped) {
-    this.modeloPrograma = modeloPrograma;
-    this.vistaPrincipal = vistaPrincipal;
-    this.vistaHuesped= vistaHuesped;
+    public ControlPrograma(Huesped modeloHuesped, Menu vistaMenu) {
+    this.modeloHuesped = modeloHuesped;
+    this.vistaMenu = vistaMenu;
 
     this.vistaPrincipal.getjButton1().addActionListener(this);
     this.vistaPrincipal.getjButton2().addActionListener(this);

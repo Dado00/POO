@@ -10,11 +10,10 @@ package modelo;
  * @author ivanj
  */
 public class Registro {
-    private String usuario;
-    private String contraseña;
     
     public Registro (String usuario, String contraseña){
         
         
-    }
+        
+   }
 }
