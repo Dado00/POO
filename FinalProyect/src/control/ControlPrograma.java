@@ -24,7 +24,6 @@ import modelo.Registro;
  */
 public class ControlPrograma implements ActionListener {
     
-    private Registro modeloPrograma;
     private Principal vistaPrincipal;
     private VistaHuesped vistaHuesped;
     private Huesped modeloHuesped;
@@ -35,10 +34,7 @@ public class ControlPrograma implements ActionListener {
 
     
   
-    public ControlPrograma(Registro modeloPrograma, Principal vistaPrincipal, VistaHuesped vistaHuesped, 
-            Huesped modeloHuesped, VistaFactura vistaFactura) {
-    this.modeloPrograma = modeloPrograma;
-    this.vistaPrincipal = vistaPrincipal;
+    public ControlPrograma(VistaHuesped vistaHuesped, Huesped modeloHuesped, VistaFactura vistaFactura, Menu vistaMenu) {
     this.vistaHuesped= vistaHuesped;
     this.modeloHuesped=modeloHuesped;
     this.vistaFactura= vistaFactura;
@@ -56,9 +52,6 @@ public class ControlPrograma implements ActionListener {
     
 }
 
-    public ControlPrograma(Huesped modeloHuesped, Menu vistaMenu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public void actionPerformed(ActionEvent evento) {
     if(vistaHuesped.getjButton1() == evento.getSource()) {
@@ -118,6 +111,9 @@ public class ControlPrograma implements ActionListener {
       vistaHuesped.getjTextField4().setText(cliente.getEmail());
       vistaHuesped.getjTextField5().setText(String.valueOf(cliente.getFechaIngreso()));
       vistaHuesped.getjTextField6().setText(String.valueOf(cliente.getFechaSalida()));
+      vistaHuesped.getjComboBox2().setSelectedItem(cliente.getHabitacion());
+//      vistaHuesped.getjTextField7().set;
+      vistaHuesped.getjComboBox3().setSelectedItem(cliente.getComida());
   } 
 }
     

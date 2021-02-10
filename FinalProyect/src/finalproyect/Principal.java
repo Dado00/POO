@@ -119,7 +119,11 @@ public class Principal extends javax.swing.JFrame {
                         Huesped modeloHuesped = new Huesped();
 
                         Menu vistaMenu = new Menu();
-                        ControlPrograma controlPrograma = new ControlPrograma(modeloHuesped, vistaMenu);
+                        
+                        VistaHuesped vistaHuesped= new VistaHuesped();
+                        
+                        VistaFactura vistaFactura= new VistaFactura();
+                        ControlPrograma controlPrograma = new ControlPrograma(vistaHuesped,modeloHuesped,vistaFactura, vistaMenu);
                         //controlador.iniciarVista();
                         vistaMenu.setVisible(true);
 
