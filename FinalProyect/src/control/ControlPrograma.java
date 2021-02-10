@@ -89,7 +89,14 @@ public class ControlPrograma implements ActionListener {
         modeloHuesped.setHabitacion(TipoHabitacion);
         modeloHuesped.setNumHabitacion(numHabitacion);
         modeloHuesped.setComida(comida);
-     
+        
+        DAOHuesped daoHuesped = new DAOHuesped();
+      try{
+        daoHuesped.agregar(modeloHuesped);
+      }catch(Exception e){
+              e.printStackTrace();
+      }
+        
         }
     
     if(vistaFactura.getjButton5() == evento.getSource()) {
@@ -98,7 +105,7 @@ public class ControlPrograma implements ActionListener {
       String condicion;
      
       claveCliente = Integer.parseInt(vistaFactura.getjTextField1().getText());
-      condicion = " id_clientes = " + claveCliente;
+      condicion = " clave = " + claveCliente;
       DAOHuesped daoCliente = new DAOHuesped();
       try{
         listaClientes = daoCliente.consultar(condicion);
