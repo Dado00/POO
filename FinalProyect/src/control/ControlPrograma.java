@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
 import modelo.Huesped;
-import modelo.Registro;
+
 
 /**
  *
