@@ -5,10 +5,12 @@
  */
 package control;
 
+import finalproyect.Huesped;
 import finalproyect.Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.Programa;
+import java.sql.Date;
+import modelo.Registro;
 
 /**
  *
@@ -16,19 +18,37 @@ import modelo.Programa;
  */
 public class ControlPrograma implements ActionListener {
     
-    private Programa modeloPrograma;
+    private Registro modeloPrograma;
     private Principal vistaPrincipal;
+    private Huesped vistaHuesped;
   
-    public ControlPrograma(Programa modeloPrograma, Principal vistaPrincipal) {
+    public ControlPrograma(Registro modeloPrograma, Principal vistaPrincipal, Huesped vistaHuesped) {
     this.modeloPrograma = modeloPrograma;
     this.vistaPrincipal = vistaPrincipal;
+    this.vistaHuesped= vistaHuesped;
 
     this.vistaPrincipal.getjButton1().addActionListener(this);
     this.vistaPrincipal.getjButton2().addActionListener(this);
+    this.vistaHuesped.getjButton1().addActionListener(this);
+    
     
 }
     
     public void actionPerformed(ActionEvent evento) {
-    }
+    if(vistaHuesped.getjButton1() == evento.getSource()) {
+    
+        private Date FechaIn;
+        private Date FechaOut;
+        private String nombre;
+        private String apellido;
+        private int Clave;
+        private String email;
+        private int comida;
+        private int numHabitacion;
+        private String TipoHabitacion;
+      
+     
+        }
+}
     
 }

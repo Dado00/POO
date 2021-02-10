@@ -9,11 +9,11 @@ package modelo;
  *
  * @author ivanj
  */
-public class Programa {
+public class Registro {
     private String usuario;
     private String contraseña;
     
-    public Programa (String usuario, String contraseña){
+    public Registro (String usuario, String contraseña){
         
         
     }
