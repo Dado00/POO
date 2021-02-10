@@ -21,9 +21,9 @@ public class DAOCliente extends DAOGeneral<Cliente>{
         int numFilas = 0;
         Connection con = getConeccion();
 
-        String orden = "INSERT INTO cliente (clave, nombre, fechaIngreso, fechaSalida, numhab, comida, correo)"+
+        String orden = "INSERT INTO cliente (clave, nombre, fechaIngreso, fechaSalida, numhab, comida, correo, tipoHab)"+
                 "VALUES ("+ e.getClaveCliente()+ ",'" + e.getNombre()+ "','" + 
-                e.getFechaIngreso().toString() + "',"+ e.isActivo()+")";
+                e.getFechaIngreso().toString() + "',"+e.getFechaSalida().toString()+e.getNumHab()+e.getComidas()+e.getTipoHab()+")";
 
         Statement sentencia = con.createStatement();
         numFilas = sentencia.executeUpdate(orden);
@@ -51,11 +51,12 @@ public class DAOCliente extends DAOGeneral<Cliente>{
 
         String orden = "UPDATE cliente SET " +
                 "nombre='"+e.getNombre()+"',"+
-                "fechaIngreso " + e.getFechaIngreso().toString() + "',"+
+                "fechaIngreso = " + e.getFechaIngreso().toString() + "',"+
                 "fechaSslida = "+ e.isActivo()+ "',"+
                 "numhab = "+ e.getNumHab()+ "',"+ 
                 "comida = "+e.getComida()+"',"+
-                "correo = "+e.getCorreo()+
+                "correo = "+e.getCorreo()+"',"+
+                "tipoHab = "+e.getHab()+
                 " WHERE "+condicion;
 
         Statement sentencia = con.createStatement();
@@ -74,7 +75,7 @@ public class DAOCliente extends DAOGeneral<Cliente>{
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Cliente(rs.getInt("clave"), rs.getString("nombre"),rs.getDate("fechaIngreso"),rs.getDate("fechaSalida"),rs.getInt("numhab"),rs.getInt("comida"),rs.getString("correo"));
+            e = new Cliente(rs.getInt("clave"), rs.getString("nombre"),rs.getDate("fechaIngreso"),rs.getDate("fechaSalida"),rs.getInt("numhab"),rs.getInt("comida"),rs.getString("correo"),rs.getInt("tipoHab"));
             lista.add( e );
         }
         sentencia.close();
