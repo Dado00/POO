@@ -5,11 +5,12 @@
  */
 package control;
 
-import DAO.DAOCliente;
+
 import finalproyect.Menu;
-import finalproyect.NewJFrame;
+import DAO.DAOHuesped;
 import finalproyect.VistaHuesped;
 import finalproyect.Principal;
+import finalproyect.VistaFactura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -28,25 +29,36 @@ public class ControlPrograma implements ActionListener {
     private VistaHuesped vistaHuesped;
     private Huesped modeloHuesped;
     private Menu vistaMenu;
-    private NewJFrame vistaFormulario;
+    private VistaFactura vistaFactura;
+
+    
+
+    
   
-    public ControlPrograma(Huesped modeloHuesped, Menu vistaMenu, Registro modeloPrograma, Principal vistaPrincipal, VistaHuesped vistaHuesped, NewJFrame vistaFormulario) {
-    this.modeloHuesped = modeloHuesped;
-    this.vistaMenu = vistaMenu;
+    public ControlPrograma(Registro modeloPrograma, Principal vistaPrincipal, VistaHuesped vistaHuesped, 
+            Huesped modeloHuesped, VistaFactura vistaFactura) {
     this.modeloPrograma = modeloPrograma;
     this.vistaPrincipal = vistaPrincipal;
     this.vistaHuesped= vistaHuesped;
-    this.vistaFormulario = vistaFormulario;
-    
-    
+    this.modeloHuesped=modeloHuesped;
+    this.vistaFactura= vistaFactura;
+    this.vistaMenu = vistaMenu;
 
-    this.vistaPrincipal.getjButton1().addActionListener(this);
+    
     this.vistaPrincipal.getjButton2().addActionListener(this);
     this.vistaHuesped.getjButton1().addActionListener(this);
     this.vistaHuesped.getjButton2().addActionListener(this);
+    this.vistaFactura.getjButton1().addActionListener(this);
+    this.vistaFactura.getjButton2().addActionListener(this);
+    this.vistaFactura.getjButton3().addActionListener(this);
+    this.vistaFactura.getjButton5().addActionListener(this);
     
     
 }
+
+    public ControlPrograma(Huesped modeloHuesped, Menu vistaMenu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void actionPerformed(ActionEvent evento) {
     if(vistaHuesped.getjButton1() == evento.getSource()) {
@@ -80,25 +92,26 @@ public class ControlPrograma implements ActionListener {
      
         }
     
-//    if(vistaCliente.getjButton3() == evento.getSource()) {
-//      ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
-//      int  claveCliente;
-//      String condicion;
-//     
-//      claveCliente = Integer.parseInt(vistaCliente.getjTextField1().getText());
-//      condicion = " id_clientes = " + claveCliente;
-//      DAOCliente daoCliente = new DAOCliente();
-//      try{
-//        listaClientes = daoCliente.consultar(condicion);
-//      }catch(Exception e){
-//              e.printStackTrace();
-//      }
-//      
-//      Cliente cliente = listaClientes.get(0);
-//      vistaCliente.getjTextField2().setText(cliente.getNombre());
-//      vistaCliente.getjFormattedTextField1().setText(String.valueOf(cliente.getFechaIngreso()));
-//      vistaCliente.getjCheckBox1().setSelected(cliente.isActivo());
-//  } 
+    if(vistaFactura.getjButton5() == evento.getSource()) {
+      ArrayList<Huesped> listaClientes = new ArrayList<Huesped>();
+      int  claveCliente;
+      String condicion;
+     
+      claveCliente = Integer.parseInt(vistaFactura.getjTextField1().getText());
+      condicion = " id_clientes = " + claveCliente;
+      DAOHuesped daoCliente = new DAOHuesped();
+      try{
+        listaClientes = daoCliente.consultar(condicion);
+      }catch(Exception e){
+              e.printStackTrace();
+      }
+      
+      Huesped cliente = listaClientes.get(0);
+      vistaHuesped.getjTextField2().setText(cliente.getNombre());
+      vistaHuesped.getjTextField4().setText(cliente.getEmail());
+      vistaHuesped.getjTextField5().setText(String.valueOf(cliente.getFechaIngreso()));
+      vistaHuesped.getjTextField6().setText(String.valueOf(cliente.getFechaSalida()));
+  } 
 }
     
 }
