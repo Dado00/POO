@@ -56,7 +56,6 @@ public class VistaHuesped extends javax.swing.JFrame {
 
         jLabel1.setText("Num_Ref:");
 
-        jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -87,8 +86,6 @@ public class VistaHuesped extends javax.swing.JFrame {
         jLabel8.setText("Fecha_Sald:");
 
         jLabel10.setText("Num_Habt:");
-
-        jTextField7.setEditable(false);
 
         jLabel11.setText("Num_Comida:");
 

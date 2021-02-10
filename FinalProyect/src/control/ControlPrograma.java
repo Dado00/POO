@@ -16,7 +16,8 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
 import modelo.Huesped;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -29,8 +30,14 @@ public class ControlPrograma implements ActionListener {
     private Huesped modeloHuesped;
     private Menu vistaMenu;
     private VistaFactura vistaFactura;
+    private double total;
+    private String nombre;
+    private int clave;
+    private int comidas;
+    private String Habitacion;
 
-    
+        
+ 
 
     
   
@@ -93,6 +100,7 @@ public class ControlPrograma implements ActionListener {
         }
     
     if(vistaFactura.getjButton5() == evento.getSource()) {
+        
       ArrayList<Huesped> listaClientes = new ArrayList<Huesped>();
       int  claveCliente;
       String condicion;
@@ -112,9 +120,55 @@ public class ControlPrograma implements ActionListener {
       vistaHuesped.getjTextField5().setText(String.valueOf(cliente.getFechaIngreso()));
       vistaHuesped.getjTextField6().setText(String.valueOf(cliente.getFechaSalida()));
       vistaHuesped.getjComboBox2().setSelectedItem(cliente.getHabitacion());
-//      vistaHuesped.getjTextField7().set;
+      vistaHuesped.getjTextField7().setText(String.valueOf(cliente.getNumHabitacion()));
       vistaHuesped.getjComboBox3().setSelectedItem(cliente.getComida());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+ 
+        Date fechaInicial=(cliente.getFechaIngreso());
+        Date fechaFinal=(cliente.getFechaSalida());
+ 
+        int dias=(int) ((fechaFinal.getTime()-fechaInicial.getTime())/86400000);
+ 
+        System.out.println("Hay "+dias+" dias de diferencia");
+        String aux;
+        aux=cliente.getHabitacion();
+        if(aux=="Individual"){
+        total=dias*500;
+    }
+        if(aux=="Suite"){
+        total=dias*1500;
+    }
+        if(aux=="Doble"){
+        total=dias*1000;
+    }
+        int num;
+        num=(cliente.getComida())*300;
+        Habitacion=aux;
+        comidas=num;
+        nombre=cliente.getNombre();
+        total=total+num;
+        clave=cliente.getClaveCliente();
+    
+    }
+    if(vistaFactura.getjButton1() == evento.getSource()){
+    vistaFactura.getjTextField8().setText(String.valueOf(total));
+    
+    
+    vistaFactura.getjTextArea1("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
+                                "\n================================\t"+
+                                "\n================================\t"+ 
+            "\nNumero del clinete:\t\t\t"+clave+
+            "\nNombre:\t\t\t"+nombre+
+            "\nTipo de habitación:\t\t\t"+Habitacion+
+            "\nComidas:\t\t\t"+comidas+
+                                "\n================================\t"+
+            "\nTotal:\t\t\t"+total+
+                                "\n================================\t");
+    
+    
   } 
+    
+    
 }
     
 }
