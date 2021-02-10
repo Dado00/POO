@@ -116,13 +116,15 @@ public class Principal extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
 
 
-                        
-
                         Menu vistaMenu = new Menu();
+
+                        
                         vistaMenu.setVisible(true);
+                        VistaHuesped vistaHuesped = new VistaHuesped();
+                        VistaFactura vistaFactura = new VistaFactura();
                         
                         
-                        ControlPrograma controlPrograma = new ControlPrograma(vistaMenu);
+                        ControlPrograma controlPrograma = new ControlPrograma(vistaMenu, vistaHuesped, vistaFactura);
                         //controlador.iniciarVista();
                         
 

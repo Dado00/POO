@@ -5,7 +5,10 @@
  */
 package test;
 
+import finalproyect.Menu;
 import finalproyect.Principal;
+import finalproyect.VistaFactura;
+import finalproyect.VistaHuesped;
 import modelo.Huesped;
 
 /**

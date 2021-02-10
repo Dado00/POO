@@ -142,6 +142,14 @@ public class Menu extends javax.swing.JFrame {
         this.jButton1 = jButton1;
     }
     
+    public JButton getjButton3() {
+        return jButton2;
+    }
+
+    public void setjButton3(JButton jButton2) {
+        this.jButton2 = jButton2;
+    }
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
