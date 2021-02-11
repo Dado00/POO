@@ -122,6 +122,17 @@ public class ControlPrograma implements ActionListener {
           vistaFactura.getjComboBox2().setSelectedItem(cliente.getHabitacion());
           vistaFactura.getjComboBox3().setSelectedItem(cliente.getComida());
         } 
-}
+        if(vistaMenu.getjButton2() == evento.getSource()) {
+          System.exit(0);
+        }
+        if(vistaHuesped.getjButton2() == evento.getSource()) {
+            vistaHuesped.getjTextField1().setText(null);
+            vistaHuesped.getjTextField2().setText(null);
+            vistaHuesped.getjTextField4().setText(null);
+            vistaHuesped.getjTextField5().setDateFormatString(null);
+            vistaHuesped.getjTextField6().setDateFormatString(null);
+            vistaHuesped.getjTextField7().setText(null);
+        } 
+    }
     
 }
