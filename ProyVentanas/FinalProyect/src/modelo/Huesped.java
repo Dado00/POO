@@ -12,8 +12,8 @@ import java.sql.Date;
  * @author ivanj
  */
 public class Huesped {
-    private Date FechaIn;
-    private Date FechaOut;
+    private String FechaIn;
+    private String FechaOut;
     private String nombre;
     private String apellido;
     private int clave;
@@ -22,7 +22,7 @@ public class Huesped {
     private int numHabitacion;
     private String TipoHabitacion;
     
-    public Huesped(int clave, String nombre, Date FechaIn, Date FechaOut,int numHabitacion,int comida, String email,String TipoHabitacion){
+    public Huesped(int clave, String nombre, String FechaIn, String FechaOut,int numHabitacion,int comida, String email,String TipoHabitacion){
         this.clave=clave;
         this.nombre=nombre;
         this.email=email;
@@ -33,24 +33,24 @@ public class Huesped {
         this.comida=comida;
         
     }
-
-    public Huesped() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Huesped(){
+        
     }
         
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return FechaIn;
     }
 
-    public void setFechaIngreso(Date FechaIn) {
+    public void setFechaIngreso(String FechaIn) {
         this.FechaIn = FechaIn;
     }
 
-    public Date getFechaSalida() {
+    public String getFechaSalida() {
         return FechaOut;
     }
 
-    public void setFechaSalida(Date FechaOut) {
+    public void setFechaSalida(String FechaOut) {
         this.FechaOut = FechaOut;
     }
 

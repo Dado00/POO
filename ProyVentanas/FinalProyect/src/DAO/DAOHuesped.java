@@ -77,7 +77,7 @@ public class DAOHuesped extends DAOGeneral<Huesped>{
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getDate("FechaIn"),rs.getDate("FechaOut"),rs.getInt("numHabitacion"),rs.getInt("comida"),rs.getString("email"),rs.getString("TipoHabitacion"));
+            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getString("FechaIn"),rs.getString("FechaOut"),rs.getInt("numHabitacion"),rs.getInt("comida"),rs.getString("email"),rs.getString("TipoHabitacion"));
             lista.add( e );
         }
         sentencia.close();

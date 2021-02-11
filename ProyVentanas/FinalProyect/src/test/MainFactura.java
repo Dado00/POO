@@ -23,6 +23,7 @@ public class MainFactura {
     public static void main(String[] args) {
         Principal vistaPrincipal = new Principal();
         vistaPrincipal.setVisible(true);
+        
     }
     
 }

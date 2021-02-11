@@ -34,7 +34,7 @@ public class ControlPrograma implements ActionListener {
 
     
   
-    public ControlPrograma(Menu vistaMenu, VistaHuesped vistaHuesped, VistaFactura vistaFactura) {
+    public ControlPrograma(Menu vistaMenu, VistaHuesped vistaHuesped, VistaFactura vistaFactura,Huesped modeloHuesped) {
     this.vistaMenu = vistaMenu;
     this.vistaHuesped = vistaHuesped;
     this.vistaFactura = vistaFactura;
@@ -58,8 +58,8 @@ public class ControlPrograma implements ActionListener {
         
         if(vistaHuesped.getjButton1() == evento.getSource()) {
 
-            Date FechaIn;
-            Date FechaOut;
+            String FechaIn;
+            String FechaOut;
             String nombre;
             int Clave;
             String email;
@@ -70,12 +70,13 @@ public class ControlPrograma implements ActionListener {
             Clave=Integer.parseInt(vistaHuesped.getjTextField1().getText());
             nombre=vistaHuesped.getjTextField2().getText();
             email=vistaHuesped.getjTextField4().getText();
-            FechaIn=new Date (Long.parseLong(vistaHuesped.getjTextField5().getText()));
-            FechaOut=new Date (Long.parseLong(vistaHuesped.getjTextField6().getText()));
+            FechaIn = vistaHuesped.getjTextField5().getDateFormatString();
+            FechaOut = vistaHuesped.getjTextField6().getDateFormatString();
             TipoHabitacion=(String)vistaHuesped.getjComboBox2().getSelectedItem();
             numHabitacion=Integer.parseInt(vistaHuesped.getjTextField7().getText());
-            comida=(int)vistaHuesped.getjComboBox3().getSelectedItem();
-
+            comida= 1;
+//                    vistaHuesped.getjComboBox3().getItemAt(vistaHuesped.getjComboBox3().getSelectedIndex());
+            
             modeloHuesped.setClaveCliente(Clave);
             modeloHuesped.setNombre(nombre); 
             modeloHuesped.setEmail(email);
@@ -114,12 +115,12 @@ public class ControlPrograma implements ActionListener {
           }
 
           Huesped cliente = listaClientes.get(0);
-          vistaHuesped.getjTextField2().setText(cliente.getNombre());
-          vistaHuesped.getjTextField4().setText(cliente.getEmail());
-          vistaHuesped.getjTextField5().setText(String.valueOf(cliente.getFechaIngreso()));
-          vistaHuesped.getjTextField6().setText(String.valueOf(cliente.getFechaSalida()));
-          vistaHuesped.getjComboBox2().setSelectedItem(cliente.getHabitacion());
-          vistaHuesped.getjComboBox3().setSelectedItem(cliente.getComida());
+          vistaFactura.getjTextField2().setText(cliente.getNombre());
+          vistaFactura.getjTextField4().setText(cliente.getEmail());
+          vistaFactura.getjTextField5().setText(String.valueOf(cliente.getFechaIngreso()));
+          vistaFactura.getjTextField6().setText(String.valueOf(cliente.getFechaSalida()));
+          vistaFactura.getjComboBox2().setSelectedItem(cliente.getHabitacion());
+          vistaFactura.getjComboBox3().setSelectedItem(cliente.getComida());
         } 
 }
     
