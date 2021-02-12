@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modelo.Factura;
 import modelo.Habitacion;
 import modelo.Huesped;
 
@@ -31,6 +32,7 @@ public class ControlPrograma implements ActionListener {
     private Menu vistaMenu;
     private VistaFactura vistaFactura;
     private Habitacion modeloHabitacion;
+    private Factura modeloFactura;
 
     
 
@@ -213,6 +215,7 @@ public class ControlPrograma implements ActionListener {
             String Habitacion;
             double total;
             int dias;
+            String Fac;
             
             ArrayList<Huesped> listaClientes = new ArrayList<Huesped>();
             int  claveCliente;
@@ -238,8 +241,10 @@ public class ControlPrograma implements ActionListener {
 
             total=total*dias;
             total=total+900;
+            
+            vistaFactura.getjTextField8().setText(String.valueOf(total));;
 
-            vistaFactura.getjTextArea1  ("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
+            Fac=("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
                                   "\n================================\t"+
                                   "\n================================\t"+ 
               "\nNumero del clinete:\t\t\t"+clave+
@@ -249,6 +254,10 @@ public class ControlPrograma implements ActionListener {
                                   "\n================================\t"+
               "\nTotal:\t\t\t$"+total+
                                   "\n================================\t");
+            
+            modeloFactura.setFactura(Fac);
+            vistaFactura.getjTextArea1().setText(Fac);
+            
     
     
   } 

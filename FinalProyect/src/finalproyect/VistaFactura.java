@@ -7,6 +7,7 @@ package finalproyect;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -600,8 +601,12 @@ public class VistaFactura extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 
-    public String getjTextArea1(String string) {
-        return(string); 
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1=jTextArea1; 
+    }
+    
+    public JTextArea getjTextArea1(){
+        return jTextArea1;
     }
     
     
