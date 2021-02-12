@@ -252,45 +252,7 @@ public class ControlPrograma implements ActionListener {
             total=total*dias;
             total=total+900;
             vistaFactura.getjTextField8().setText(String.valueOf(total));
-        } 
-        
-        
-        
-        if(vistaFactura.getjButton3() == evento.getSource()){
-            int clave;
-            String nombre;
-            String Habitacion;
-            double total;
-            int dias;
-            String Fac;
             
-            ArrayList<Huesped> listaClientes = new ArrayList<Huesped>();
-            int  claveCliente;
-            String condicion;
-
-            claveCliente = Integer.parseInt(vistaFactura.getjTextField1().getText());
-            condicion = " clave = " + claveCliente;
-            DAOHuesped daoCliente = new DAOHuesped();
-            try{
-              listaClientes = daoCliente.consultar(condicion);
-            }catch(Exception e){
-                    e.printStackTrace();
-            }
-
-            Huesped cliente = listaClientes.get(0);
-            clave=cliente.getClaveCliente();
-            nombre=cliente.getNombre();
-            Habitacion=cliente.getHabitacion();
-            dias=cliente.getDias();
-
-            modeloHabitacion.setPrecioHabitacion(Habitacion);
-            total=modeloHabitacion.getPrecioHabitacion();
-
-            total=total*dias;
-            total=total+900;
-            
-            vistaFactura.getjTextField8().setText(String.valueOf(total));
-
             Fac=("\tHotel Rivera Resort\n"+"\nReferencia:\t\t\t45731"+
                                   "\n=====================================\t"+
                                   "\n=====================================\t"+ 
@@ -304,6 +266,18 @@ public class ControlPrograma implements ActionListener {
             
             modeloFactura.setFactura(Fac);
             vistaFactura.getjTextArea1().setText(Fac);
+        } 
+        
+        
+        
+        if(vistaFactura.getjButton3() == evento.getSource()){
+            try{
+                vistaFactura.getjTextArea1().print();
+            }catch(java.awt.print.PrinterException e){
+                System.err.format("No se encontró factura", e.getMessage());
+            }
+
+            
             
     
     
