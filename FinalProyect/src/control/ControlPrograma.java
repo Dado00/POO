@@ -105,7 +105,7 @@ public class ControlPrograma implements ActionListener {
             Clave=Integer.parseInt(vistaHuesped.getjTextField1().getText());
             nombre=vistaHuesped.getjTextField2().getText();
             email=vistaHuesped.getjTextField4().getText();
-            dias = vistaHuesped.getjTextField5().getText();
+            dias = Integer.parseInt(vistaHuesped.getjTextField3().getText());
             TipoHabitacion=(String)vistaHuesped.getjComboBox2().getSelectedItem();
             numHabitacion=Integer.parseInt(vistaHuesped.getjTextField7().getText());
             comida= 1;
@@ -150,7 +150,7 @@ public class ControlPrograma implements ActionListener {
           Huesped cliente = listaClientes.get(0);
           vistaFactura.getjTextField2().setText(cliente.getNombre());
           vistaFactura.getjTextField4().setText(cliente.getEmail());
-          vistaFactura.getjTextField5().setText(String.valueOf(cliente.getDias()));
+          vistaFactura.getjTextField3().setText(String.valueOf(cliente.getDias()));
           vistaFactura.getjComboBox2().setSelectedItem(cliente.getHabitacion());
           vistaFactura.getjComboBox3().setSelectedItem(cliente.getComida());
         } 
@@ -161,10 +161,27 @@ public class ControlPrograma implements ActionListener {
             vistaHuesped.getjTextField1().setText(null);
             vistaHuesped.getjTextField2().setText(null);
             vistaHuesped.getjTextField4().setText(null);
-            vistaHuesped.getjTextField5().setDateFormatString(null);
-            vistaHuesped.getjTextField6().setDateFormatString(null);
+            vistaHuesped.getjTextField3().setText(null);
             vistaHuesped.getjTextField7().setText(null);
         } 
+        
+//        if(vistaFactura.getjButton1() == evento.getSource()){
+//    vistaFactura.getjTextField8().setText(String.valueOf(total));
+//    
+//    
+//    vistaFactura.getjTextArea1("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
+//                                "\n================================\t"+
+//                                "\n================================\t"+ 
+//            "\nNumero del clinete:\t\t\t"+clave+
+//            "\nNombre:\t\t\t"+nombre+
+//            "\nTipo de habitación:\t\t\t"+Habitacion+
+//            "\nComidas:\t\t\t"+comidas+
+//                                "\n================================\t"+
+//            "\nTotal:\t\t\t"+total+
+//                                "\n================================\t");
+//    
+//    
+//  } 
     }
     
 }
