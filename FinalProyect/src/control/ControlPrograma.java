@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modelo.Habitacion;
 import modelo.Huesped;
 
 
@@ -29,6 +30,7 @@ public class ControlPrograma implements ActionListener {
     private Huesped modeloHuesped;
     private Menu vistaMenu;
     private VistaFactura vistaFactura;
+    private Habitacion modeloHabitacion;
 
     
 
@@ -178,7 +180,7 @@ public class ControlPrograma implements ActionListener {
           vistaFactura.getjTextField3().setText(String.valueOf(cliente.getDias()));
           vistaFactura.getjTextField7().setText(String.valueOf(cliente.getNumHabitacion()));
           vistaFactura.getjComboBox2().setSelectedItem(cliente.getHabitacion());
-          vistaFactura.getjComboBox3().setSelectedItem(cliente.getComida());
+          
         } 
         
         if(vistaMenu.getjButton2() == evento.getSource()) {
@@ -203,23 +205,51 @@ public class ControlPrograma implements ActionListener {
             vistaFactura.dispose();
         } 
         
-//        if(vistaFactura.getjButton1() == evento.getSource()){
-//    vistaFactura.getjTextField8().setText(String.valueOf(total));
-//    
-//    
-//    vistaFactura.getjTextArea1("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
-//                                "\n================================\t"+
-//                                "\n================================\t"+ 
-//            "\nNumero del clinete:\t\t\t"+clave+
-//            "\nNombre:\t\t\t"+nombre+
-//            "\nTipo de habitación:\t\t\t"+Habitacion+
-//            "\nComidas:\t\t\t"+comidas+
-//                                "\n================================\t"+
-//            "\nTotal:\t\t\t"+total+
-//                                "\n================================\t");
-//    
-//    
-//  } 
+        if(vistaFactura.getjButton1() == evento.getSource()){
+            int clave;
+            String nombre;
+            String Habitacion;
+            double total;
+            int dias;
+            
+    ArrayList<Huesped> listaClientes = new ArrayList<Huesped>();
+          int  claveCliente;
+          String condicion;
+
+          claveCliente = Integer.parseInt(vistaFactura.getjTextField1().getText());
+          condicion = " clave = " + claveCliente;
+          DAOHuesped daoCliente = new DAOHuesped();
+          try{
+            listaClientes = daoCliente.consultar(condicion);
+          }catch(Exception e){
+                  e.printStackTrace();
+          }
+
+          Huesped cliente = listaClientes.get(0);
+          clave=cliente.getClaveCliente();
+          nombre=cliente.getNombre();
+          Habitacion=cliente.getHabitacion();
+          dias=cliente.getDias();
+          
+          modeloHabitacion.setPrecioHabitacion(Habitacion);
+          total=modeloHabitacion.getPrecioHabitacion();
+          
+          total=total*dias;
+          total=total+900;
+   
+    vistaFactura.getjTextArea1("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
+                                "\n================================\t"+
+                                "\n================================\t"+ 
+            "\nNumero del clinete:\t\t\t"+clave+
+            "\nNombre:\t\t\t"+nombre+
+            "\nTipo de habitación:\t\t\t"+Habitacion+
+            "\nComidas:\t\t\t$"+"300/c"+
+                                "\n================================\t"+
+            "\nTotal:\t\t\t$"+total+
+                                "\n================================\t");
+    
+    
+  } 
     }
     
 }
