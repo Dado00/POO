@@ -171,7 +171,7 @@ public class VistaFactura extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Total");
+        jButton1.setText("Generar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

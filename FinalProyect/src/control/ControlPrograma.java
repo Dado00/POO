@@ -276,12 +276,7 @@ public class ControlPrograma implements ActionListener {
             }catch(java.awt.print.PrinterException e){
                 System.err.format("No se encontró factura", e.getMessage());
             }
-
-            
-            
-    
-    
-  } 
+        } 
     }
     
 }
