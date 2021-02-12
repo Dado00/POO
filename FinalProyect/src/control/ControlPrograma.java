@@ -262,7 +262,8 @@ public class ControlPrograma implements ActionListener {
               "\n\n3 Comidas:\t\t\t$"+"300/c"+
                                   "\n=====================================\t"+
               "\n\nTotal:\t\t\t$"+total+
-                                  "\n=====================================\t");
+                                  "\n=====================================\t"+
+                    "\n\t¡Gracias por escogernos!");
             
             modeloFactura.setFactura(Fac);
             vistaFactura.getjTextArea1().setText(Fac);
