@@ -24,7 +24,7 @@ public class DAOHuesped extends DAOGeneral<Huesped>{
         Connection con = getConeccion();
 
         String orden = "INSERT INTO hotel.cliente (clave, nombre, dias, numhab, comida, correo, tipoHab)"+
-                "VALUES ('"+ e.getClaveCliente() + ",'" + e.getNombre()+ "','" +e.getDias() + "','"+
+                "VALUES ("+ e.getClaveCliente() + ",'" + e.getNombre()+ "','" +e.getDias() + "','"+
                 e.getNumHabitacion()+"','"+e.getComida()+"','"+e.getEmail()+"','"+e.getHabitacion()+"')";
 
         Statement sentencia = con.createStatement();
@@ -76,7 +76,7 @@ public class DAOHuesped extends DAOGeneral<Huesped>{
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getInt("dias"),rs.getInt("numHabitacion"),rs.getInt("comida"),rs.getString("email"),rs.getString("TipoHabitacion"));
+            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getInt("dias"),rs.getInt("numHab"),rs.getInt("comida"),rs.getString("correo"),rs.getString("tipoHab"));
             lista.add( e );
         }
         sentencia.close();
