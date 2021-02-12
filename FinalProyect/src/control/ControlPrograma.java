@@ -14,6 +14,7 @@ import finalproyect.VistaFactura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Factura;
 import modelo.Habitacion;
@@ -254,15 +255,15 @@ public class ControlPrograma implements ActionListener {
             vistaFactura.getjTextField8().setText(String.valueOf(total));
             
             Fac=("\tHotel Rivera Resort\n"+"\nReferencia:\t\t\t45731"+
-                                  "\n=====================================\t"+
-                                  "\n=====================================\t"+ 
-              "\n\nNumero del cliente:\t\t"+clave+
-              "\n\nNombre:\t\t\t"+nombre+
-              "\n\nTipo de habitación:\t\t"+Habitacion+
-              "\n\n3 Comidas:\t\t\t$"+"300/c"+
-                                  "\n=====================================\t"+
-              "\n\nTotal:\t\t\t$"+total+
-                                  "\n=====================================\t");
+                    "\n=====================================\t"+
+                    "\n=====================================\t"+
+                    "\n\nNumero del cliente:\t\t"+clave+
+                    "\n\nNombre:\t\t\t"+nombre+
+                    "\n\nTipo de habitación:\t\t"+Habitacion+
+                    "\n\n3 Comidas:\t\t\t$"+"300/c"+
+                    "\n=====================================\t"+
+                    "\n\nTotal:\t\t\t$"+total+
+                    "\n=====================================\t");
             
             modeloFactura.setFactura(Fac);
             vistaFactura.getjTextArea1().setText(Fac);
