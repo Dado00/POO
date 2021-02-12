@@ -245,15 +245,15 @@ public class ControlPrograma implements ActionListener {
             
             vistaFactura.getjTextField8().setText(String.valueOf(total));;
 
-            Fac=("\tHotel Rivera Resort\n"+"Referencia:\t\t\t45731"+
+            Fac=("\tHotel Rivera Resort\n"+"\nReferencia:\t\t\t45731"+
                                   "\n================================\t"+
                                   "\n================================\t"+ 
-              "\nNumero del clinete:\t\t\t"+clave+
-              "\nNombre:\t\t\t"+nombre+
-              "\nTipo de habitación:\t\t\t"+Habitacion+
-              "\nComidas:\t\t\t$"+"300/c"+
+              "\n\nNumero del cliente:\t\t\t"+clave+
+              "\n\nNombre:\t\t\t"+nombre+
+              "\n\nTipo de habitación:\t\t\t"+Habitacion+
+              "\n\n3 Comidas:\t\t\t$"+"300/c"+
                                   "\n================================\t"+
-              "\nTotal:\t\t\t$"+total+
+              "\n\nTotal:\t\t\t$"+total+
                                   "\n================================\t");
             
             modeloFactura.setFactura(Fac);
