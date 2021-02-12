@@ -38,13 +38,14 @@ public class ControlPrograma implements ActionListener {
 
     
   
-    public ControlPrograma(Huesped modeloHuesped, Habitacion modeloHabitacion, Principal vistaPrincipal, Menu vistaMenu, VistaHuesped vistaHuesped, VistaFactura vistaFactura) {
+    public ControlPrograma(Huesped modeloHuesped, Habitacion modeloHabitacion, Factura modeloFactura, Principal vistaPrincipal, Menu vistaMenu, VistaHuesped vistaHuesped, VistaFactura vistaFactura) {
     this.modeloHuesped = modeloHuesped;
     this.vistaPrincipal = vistaPrincipal;
     this.vistaMenu = vistaMenu;
     this.vistaHuesped = vistaHuesped;
     this.vistaFactura = vistaFactura;
     this.modeloHabitacion = modeloHabitacion;
+    this.modeloFactura = modeloFactura;
     
     this.vistaPrincipal.getjButton2().addActionListener(this);
     this.vistaMenu.getjButton1().addActionListener(this);
