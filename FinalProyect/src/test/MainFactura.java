@@ -10,6 +10,7 @@ import finalproyect.Menu;
 import finalproyect.Principal;
 import finalproyect.VistaFactura;
 import finalproyect.VistaHuesped;
+import modelo.Habitacion;
 import modelo.Huesped;
 
 /**
@@ -23,11 +24,12 @@ public class MainFactura {
      */
     public static void main(String[] args) {
         Huesped modeloHuesped = new Huesped();
+        Habitacion modeloHabitacion = new Habitacion();
         Principal vistaPrincipal = new Principal();
         Menu vistaMenu = new Menu();
         VistaHuesped vistaHuesped = new VistaHuesped();
         VistaFactura vistaFactura = new VistaFactura();;
-        ControlPrograma controlPrograma = new ControlPrograma(modeloHuesped,vistaPrincipal,vistaMenu, vistaHuesped, vistaFactura);
+        ControlPrograma controlPrograma = new ControlPrograma(modeloHuesped, modeloHabitacion,vistaPrincipal,vistaMenu, vistaHuesped, vistaFactura);
         vistaPrincipal.setVisible(true);
         
         

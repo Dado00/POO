@@ -17,6 +17,10 @@ public class Habitacion {
         this.tipoHabitacion=tipoHabitacion;
     }
     
+    public Habitacion (){
+        
+    }
+    
     public String getHabitacion() {
         return tipoHabitacion;
     }
@@ -32,13 +36,13 @@ public class Habitacion {
     public void setPrecioHabitacion (String tipoHabitacion) {
         this.tipoHabitacion=tipoHabitacion;
         
-        if(tipoHabitacion=="Suite"){
+        if(tipoHabitacion == "Suite"){
         precio=1500;
     }
-       if(tipoHabitacion=="Individual"){
+       if(tipoHabitacion == "Individual"){
         precio=500;
     }
-       if(tipoHabitacion=="Doble"){
+       if(tipoHabitacion == "Doble"){
         precio=1000;
     }
         

@@ -603,4 +603,6 @@ public class VistaFactura extends javax.swing.JFrame {
     public String getjTextArea1(String string) {
         return(string); 
     }
+    
+    
 }
