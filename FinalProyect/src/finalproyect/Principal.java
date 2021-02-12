@@ -8,6 +8,8 @@ package finalproyect;
 import control.ControlPrograma;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import modelo.Huesped;
 
 /**
@@ -100,41 +102,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        char clave[]=contraseñaUsuario.getPassword();
-
-        String clavedef=new String(clave);
-
-
-        if (textoUsuario.getText().equals("Administrador") && clavedef.equals("12345")){
-
-
-                        this.dispose();
-
-
-                        JOptionPane.showMessageDialog(null, "Bienvenido\n"
-                        + "Has ingresado satisfactoriamente al sistema",   "Mensaje de bienvenida",
-                        JOptionPane.INFORMATION_MESSAGE);
-
-
-                        Huesped modeloHuesped = new Huesped();
-
-                        Menu vistaMenu = new Menu();
-                        
-                        VistaHuesped vistaHuesped= new VistaHuesped();
-                        
-                        VistaFactura vistaFactura= new VistaFactura();
-                        ControlPrograma controlPrograma = new ControlPrograma(vistaHuesped,modeloHuesped,vistaFactura, vistaMenu);
-                        //controlador.iniciarVista();
-                        vistaMenu.setVisible(true);
-
-
-        }else {
-
-
-                        JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
-                        + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
-                        JOptionPane.ERROR_MESSAGE);
-        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -178,6 +146,23 @@ public class Principal extends javax.swing.JFrame {
     public void setjButton2(JButton jButton2) {
         this.jButton2 = jButton2;
     }
+    
+    public JTextField getTextoUsuario() {
+        return textoUsuario;
+    }
+    
+    public void setTextoUsuario(JTextField textoUsuario) {
+        this.textoUsuario = textoUsuario;
+    }
+    
+    public JPasswordField getContraseña() {
+        return contraseñaUsuario;
+    }
+    
+    public void setContraseña(JPasswordField contraseñaUsuario) {
+        this.contraseñaUsuario = contraseñaUsuario;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contraseñaUsuario;

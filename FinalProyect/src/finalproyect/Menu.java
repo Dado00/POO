@@ -5,6 +5,8 @@
  */
 package finalproyect;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author ivanj
@@ -124,6 +126,32 @@ public class Menu extends javax.swing.JFrame {
         });
     }
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton3) {
+        this.jButton3 = jButton3;
+    }
+
+    public JButton getjButton2() {
+        return jButton3;
+    }
+
+    public void setjButton2(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+    
+    public JButton getjButton3() {
+        return jButton2;
+    }
+
+    public void setjButton3(JButton jButton2) {
+        this.jButton2 = jButton2;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -5,15 +5,14 @@
  */
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
  * @author ivanj
  */
 public class Huesped {
-    private Date FechaIn;
-    private Date FechaOut;
+    private int dias;
     private String nombre;
     private String apellido;
     private int clave;
@@ -22,36 +21,27 @@ public class Huesped {
     private int numHabitacion;
     private String TipoHabitacion;
     
-    public Huesped(int clave, String nombre, Date FechaIn, Date FechaOut,int numHabitacion,int comida, String email,String TipoHabitacion){
+    public Huesped(int clave, String nombre, int dias,int numHabitacion,int comida, String email,String TipoHabitacion){
         this.clave=clave;
         this.nombre=nombre;
         this.email=email;
-        this.FechaIn=FechaIn;
-        this.FechaOut=FechaOut;
+        this.dias=dias;
         this.TipoHabitacion=TipoHabitacion;
         this.numHabitacion=numHabitacion;
         this.comida=comida;
         
     }
-
-    public Huesped() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Huesped(){
+        
     }
         
-    public Date getFechaIngreso() {
-        return FechaIn;
+    public int getDias() {
+        return dias;
     }
 
-    public void setFechaIngreso(Date FechaIn) {
-        this.FechaIn = FechaIn;
-    }
-
-    public Date getFechaSalida() {
-        return FechaOut;
-    }
-
-    public void setFechaSalida(Date FechaOut) {
-        this.FechaOut = FechaOut;
+    public void setDias(int dias) {
+        this.dias = dias;
     }
 
     public int getClaveCliente() {
