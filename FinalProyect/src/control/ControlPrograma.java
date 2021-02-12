@@ -151,6 +151,14 @@ public class ControlPrograma implements ActionListener {
             }catch(Exception e){
                     e.printStackTrace();
             }
+            vistaFactura.getjTextField1().setText(null);
+            vistaFactura.getjTextField2().setText(null);
+            vistaFactura.getjTextField3().setText(null);
+            vistaFactura.getjTextField4().setText(null);
+            vistaFactura.getjTextField7().setText(null);
+            vistaFactura.getjTextField8().setText(null);
+            vistaFactura.getjComboBox2().setSelectedItem("Suite");
+            vistaFactura.getjTextArea1().setText(null);
         }
         
         
@@ -162,7 +170,6 @@ public class ControlPrograma implements ActionListener {
         
         if(vistaMenu.getjButton3() == evento.getSource()) {
           vistaMenu.dispose();
-          vistaFactura.setExtendedState(vistaFactura.MAXIMIZED_BOTH);
           vistaFactura.setVisible(true);
         } 
 
