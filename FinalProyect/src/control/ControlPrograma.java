@@ -54,6 +54,8 @@ public class ControlPrograma implements ActionListener {
     this.vistaHuesped.getjButton1().addActionListener(this);
     this.vistaHuesped.getjButton2().addActionListener(this);
     this.vistaHuesped.getjButton3().addActionListener(this);
+    this.vistaFactura.getjButton1().addActionListener(this);
+    this.vistaFactura.getjButton2().addActionListener(this);
     this.vistaFactura.getjButton3().addActionListener(this);
     this.vistaFactura.getjButton5().addActionListener(this);
     this.vistaFactura.getjButton6().addActionListener(this);
@@ -208,7 +210,44 @@ public class ControlPrograma implements ActionListener {
         if(vistaFactura.getjButton6() == evento.getSource()) {
             vistaMenu.setVisible(true);
             vistaFactura.dispose();
+        }
+        
+        if(vistaFactura.getjButton1() == evento.getSource()) {
+            int clave;
+            String nombre;
+            String Habitacion;
+            double total;
+            int dias;
+            String Fac;
+            
+            ArrayList<Huesped> listaClientes = new ArrayList<Huesped>();
+            int  claveCliente;
+            String condicion;
+
+            claveCliente = Integer.parseInt(vistaFactura.getjTextField1().getText());
+            condicion = " clave = " + claveCliente;
+            DAOHuesped daoCliente = new DAOHuesped();
+            try{
+              listaClientes = daoCliente.consultar(condicion);
+            }catch(Exception e){
+                    e.printStackTrace();
+            }
+
+            Huesped cliente = listaClientes.get(0);
+            clave=cliente.getClaveCliente();
+            nombre=cliente.getNombre();
+            Habitacion=cliente.getHabitacion();
+            dias=cliente.getDias();
+
+            modeloHabitacion.setPrecioHabitacion(Habitacion);
+            total=modeloHabitacion.getPrecioHabitacion();
+
+            total=total*dias;
+            total=total+900;
+            vistaFactura.getjTextField8().setText(String.valueOf(total));
         } 
+        
+        
         
         if(vistaFactura.getjButton3() == evento.getSource()){
             int clave;
@@ -243,7 +282,7 @@ public class ControlPrograma implements ActionListener {
             total=total*dias;
             total=total+900;
             
-            vistaFactura.getjTextField8().setText(String.valueOf(total));;
+            vistaFactura.getjTextField8().setText(String.valueOf(total));
 
             Fac=("\tHotel Rivera Resort\n"+"\nReferencia:\t\t\t45731"+
                                   "\n================================\t"+

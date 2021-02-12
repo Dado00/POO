@@ -34,15 +34,13 @@ public class Habitacion {
     }
 
     public void setPrecioHabitacion (String tipoHabitacion) {
-        this.tipoHabitacion=tipoHabitacion;
-        
-        if(tipoHabitacion == "Suite"){
+        if(tipoHabitacion.equals("Suite")){
         precio=1500;
     }
-       if(tipoHabitacion == "Individual"){
+       if(tipoHabitacion.equals("Individual")){
         precio=500;
     }
-       if(tipoHabitacion == "Doble"){
+       if(tipoHabitacion.equals("Doble")){
         precio=1000;
     }
         
