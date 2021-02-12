@@ -13,8 +13,9 @@ import finalproyect.Principal;
 import finalproyect.VistaFactura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.Huesped;
 
 
@@ -34,12 +35,14 @@ public class ControlPrograma implements ActionListener {
 
     
   
-    public ControlPrograma(Menu vistaMenu, VistaHuesped vistaHuesped, VistaFactura vistaFactura,Huesped modeloHuesped) {
+    public ControlPrograma(Huesped modeloHuesped, Principal vistaPrincipal, Menu vistaMenu, VistaHuesped vistaHuesped, VistaFactura vistaFactura) {
+    this.modeloHuesped = modeloHuesped;
+    this.vistaPrincipal = vistaPrincipal;
     this.vistaMenu = vistaMenu;
     this.vistaHuesped = vistaHuesped;
     this.vistaFactura = vistaFactura;
     
-    
+    this.vistaPrincipal.getjButton2().addActionListener(this);
     this.vistaMenu.getjButton1().addActionListener(this);
     this.vistaMenu.getjButton2().addActionListener(this);
     this.vistaMenu.getjButton3().addActionListener(this);
@@ -50,6 +53,39 @@ public class ControlPrograma implements ActionListener {
 
     
     public void actionPerformed(ActionEvent evento) {
+        if(vistaPrincipal.getjButton2() == evento.getSource()){
+            char clave[]=vistaPrincipal.getContraseña().getPassword();
+
+            String clavedef=new String(clave);
+
+
+            if (vistaPrincipal.getTextoUsuario().getText().equals("Admin") && clavedef.equals("12345")){
+
+
+                            vistaPrincipal.dispose();
+
+
+                            JOptionPane.showMessageDialog(null, "Bienvenido\n"
+                            + "Has ingresado satisfactoriamente al sistema",   "Mensaje de bienvenida",
+                            JOptionPane.INFORMATION_MESSAGE);
+                            vistaMenu.setVisible(true);
+
+
+                            //controlador.iniciarVista();
+
+
+
+            }else {
+
+
+                            JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+                            + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
+                            JOptionPane.ERROR_MESSAGE);
+        }
+        
+        }
+        
+        
         if(vistaMenu.getjButton1() == evento.getSource()) {
 
             vistaMenu.dispose();
@@ -58,8 +94,7 @@ public class ControlPrograma implements ActionListener {
         
         if(vistaHuesped.getjButton1() == evento.getSource()) {
 
-            String FechaIn;
-            String FechaOut;
+            int dias;
             String nombre;
             int Clave;
             String email;
@@ -70,8 +105,7 @@ public class ControlPrograma implements ActionListener {
             Clave=Integer.parseInt(vistaHuesped.getjTextField1().getText());
             nombre=vistaHuesped.getjTextField2().getText();
             email=vistaHuesped.getjTextField4().getText();
-            FechaIn = vistaHuesped.getjTextField5().getDateFormatString();
-            FechaOut = vistaHuesped.getjTextField6().getDateFormatString();
+            dias = vistaHuesped.getjTextField5().getText();
             TipoHabitacion=(String)vistaHuesped.getjComboBox2().getSelectedItem();
             numHabitacion=Integer.parseInt(vistaHuesped.getjTextField7().getText());
             comida= 1;
@@ -80,18 +114,17 @@ public class ControlPrograma implements ActionListener {
             modeloHuesped.setClaveCliente(Clave);
             modeloHuesped.setNombre(nombre); 
             modeloHuesped.setEmail(email);
-            modeloHuesped.setFechaIngreso(FechaIn);
-            modeloHuesped.setFechaSalida(FechaOut);
+            modeloHuesped.setDias(dias);
             modeloHuesped.setHabitacion(TipoHabitacion);
             modeloHuesped.setNumHabitacion(numHabitacion);
             modeloHuesped.setComida(comida);
 
-            DAOHuesped daoHuesped = new DAOHuesped();
-          try{
-            daoHuesped.agregar(modeloHuesped);
-          }catch(Exception e){
-                  e.printStackTrace();
-          }
+//            DAOHuesped daoHuesped = new DAOHuesped();
+//            try{
+//              daoHuesped.agregar(modeloHuesped);
+//            }catch(Exception e){
+//                    e.printStackTrace();
+//            }
         }
         
 
@@ -117,8 +150,7 @@ public class ControlPrograma implements ActionListener {
           Huesped cliente = listaClientes.get(0);
           vistaFactura.getjTextField2().setText(cliente.getNombre());
           vistaFactura.getjTextField4().setText(cliente.getEmail());
-          vistaFactura.getjTextField5().setText(String.valueOf(cliente.getFechaIngreso()));
-          vistaFactura.getjTextField6().setText(String.valueOf(cliente.getFechaSalida()));
+          vistaFactura.getjTextField5().setText(String.valueOf(cliente.getDias()));
           vistaFactura.getjComboBox2().setSelectedItem(cliente.getHabitacion());
           vistaFactura.getjComboBox3().setSelectedItem(cliente.getComida());
         } 

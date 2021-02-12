@@ -5,15 +5,14 @@
  */
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
  * @author ivanj
  */
 public class Huesped {
-    private String FechaIn;
-    private String FechaOut;
+    private int dias;
     private String nombre;
     private String apellido;
     private int clave;
@@ -22,12 +21,11 @@ public class Huesped {
     private int numHabitacion;
     private String TipoHabitacion;
     
-    public Huesped(int clave, String nombre, String FechaIn, String FechaOut,int numHabitacion,int comida, String email,String TipoHabitacion){
+    public Huesped(int clave, String nombre, int dias,int numHabitacion,int comida, String email,String TipoHabitacion){
         this.clave=clave;
         this.nombre=nombre;
         this.email=email;
-        this.FechaIn=FechaIn;
-        this.FechaOut=FechaOut;
+        this.dias=dias;
         this.TipoHabitacion=TipoHabitacion;
         this.numHabitacion=numHabitacion;
         this.comida=comida;
@@ -38,20 +36,12 @@ public class Huesped {
         
     }
         
-    public String getFechaIngreso() {
-        return FechaIn;
+    public int getDias() {
+        return dias;
     }
 
-    public void setFechaIngreso(String FechaIn) {
-        this.FechaIn = FechaIn;
-    }
-
-    public String getFechaSalida() {
-        return FechaOut;
-    }
-
-    public void setFechaSalida(String FechaOut) {
-        this.FechaOut = FechaOut;
+    public void setDias(int dias) {
+        this.dias = dias;
     }
 
     public int getClaveCliente() {

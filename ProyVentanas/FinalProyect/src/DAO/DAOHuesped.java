@@ -23,9 +23,9 @@ public class DAOHuesped extends DAOGeneral<Huesped>{
         int numFilas = 0;
         Connection con = getConeccion();
 
-        String orden = "INSERT INTO cliente (clave, nombre, fechaIngreso, fechaSalida, numhab, comida, correo, tipoHab)"+
-                "VALUES ("+ e.getClaveCliente()+ ",'" + e.getNombre()+ "','" + 
-                e.getFechaIngreso().toString() + "',"+e.getFechaSalida().toString()+"',"+e.getNumHabitacion()+"',"+e.getComida()+"',"+e.getEmail()+"',"+e.getHabitacion()+")";
+        String orden = "INSERT INTO hotel.cliente (clave, nombre, dias, numhab, comida, correo, tipoHab)"+
+                "VALUES ('"+ e.getClaveCliente() + ",'" + e.getNombre()+ "','" +e.getDias() + "','"+
+                e.getNumHabitacion()+"','"+e.getComida()+"','"+e.getEmail()+"','"+e.getHabitacion()+"')";
 
         Statement sentencia = con.createStatement();
         numFilas = sentencia.executeUpdate(orden);
@@ -53,8 +53,7 @@ public class DAOHuesped extends DAOGeneral<Huesped>{
 
         String orden = "UPDATE cliente SET " +
                 "nombre='"+e.getNombre()+"',"+
-                "fechaIngreso = " + e.getFechaIngreso().toString() + "',"+
-                "fechaSslida = "+ e.getFechaSalida()+ "',"+
+                "dias = "+ e.getDias()+ "',"+
                 "numhab = "+ e.getNumHabitacion()+ "',"+ 
                 "comida = "+e.getComida()+"',"+
                 "correo = "+e.getEmail()+"',"+
@@ -77,7 +76,7 @@ public class DAOHuesped extends DAOGeneral<Huesped>{
         Statement sentencia = con.createStatement();
         ResultSet rs = sentencia.executeQuery( orden );
         while (rs.next()) {
-            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getString("FechaIn"),rs.getString("FechaOut"),rs.getInt("numHabitacion"),rs.getInt("comida"),rs.getString("email"),rs.getString("TipoHabitacion"));
+            e = new Huesped(rs.getInt("clave"), rs.getString("nombre"),rs.getInt("dias"),rs.getInt("numHabitacion"),rs.getInt("comida"),rs.getString("email"),rs.getString("TipoHabitacion"));
             lista.add( e );
         }
         sentencia.close();
